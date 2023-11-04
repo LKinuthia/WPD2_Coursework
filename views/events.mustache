@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Management</title>
+</head>
+
+<body>
+    <h1>Create, Edit, and Delete Events</h1>
+
+
+    <div class="create-event">
+        <h2>Create Event</h2>
+        <form id="create-event-form" action="/createEvent" method="POST">
+            <input type="text" id="event-name" name="event-id" placeholder="Event id">
+            <select id="event-category" name="event-category" placeholder="Event Categories">
+                <option value="all">--Select Category--</option>
+                <option value="networking">Networking</option>
+                <option value="professional development">Professional Development</option>
+                <option value="campus event">Campus Events</option>
+              </select>
+            <input type="text" id="event-name" name="event-name" placeholder="Event Name">
+            <input type="text" id="event-location" name="event-location" placeholder="Event Location">
+            <input type="datetime-local" id="event-date" name="event-date" placeholder="Event Date">
+            <button type="submit" id="create-button">Create</button>
+        </form>
+    </div>
+
+
+    <div class="edit-event">
+        <h2>Edit Event</h2>
+        <form id="create-event-form" action="/updateEvent" method="POST">
+            <input type="text" id="event-name" name="event-id" placeholder="Event id to be updated">
+            <select id="event-category" name="new-event-category" placeholder="Event Categories">
+                <option value="all">--Select Category--</option>
+                <option value="networking">Networking</option>
+                <option value="professional development">Professional Development</option>
+                <option value="campus event">Campus Events</option>
+              </select>
+            <input type="text" id="edit-event-name" name="new-event-name" placeholder="Event Name to Edit">
+            <input type="text" id="edit-event-location" name="new-event-location" placeholder="Event Location to Edit">
+            <input type="datetime-local" id="new-event-date" name="new-event-date" placeholder="New Event Date">
+            <button type="submit" id="edit-button">Edit</button>
+        </form>
+    </div>
+
+    <div class="delete-event">
+        <h2>Delete Event</h2>
+        <form id="create-event-form" action="/deleteEvent" method="POST">
+            <input type="text" id="event-name" name="event-id" placeholder="Event id to be deleted">
+            <select id="event-category" name="event-category" placeholder="Event Categories">
+                <option value="all">--Select Category--</option>
+                <option value="networking">Networking</option>
+                <option value="professional development">Professional Development</option>
+                <option value="campus event">Campus Events</option>
+              </select>
+            <input type="text" id="event-name" name="event-name" placeholder="Event Name to be deleted">
+            <input type="text" id="event-location" name="event-location" placeholder="Event Location to deleted">
+            <input type="datetime-local" id="event-date" name="event-date" placeholder="Event Date to be deleted">
+            <button type="submit" id="delete-button">Delete</button>
+        </form>
+    </div>
+
+  
+
+    <div class="event-list">
+        <h2>Show List</h2>
+            <form id="create-event-form" action="/listEvents" method="POST">
+                <button type="submit" id="list-button">List Events</button>
+                <ul>
+                    {{#events}}
+                        <li>
+                            <strong>Event Id:</strong> {{id}},
+                            <strong>Event Category:</strong> {{category}},
+                            <strong>Event Name:</strong> {{name}},
+                            <strong>Event Location:</strong> {{location}},
+                            <strong>Event Date:</strong> {{date}}
+                        </li> 
+                    {{/events}}
+                </ul>
+        </form>
+    </div>
+    <!-- <script src="/eventscript.js"></script> -->
+</body>
+
+</html>
